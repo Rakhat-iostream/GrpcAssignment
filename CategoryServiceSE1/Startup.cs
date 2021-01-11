@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CategoryServiceSE1.Data;
+using CategoryServiceSE1.Helpers;
 using CategoryServiceSE1.Repositories;
 using CategoryServiceSE1.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AutoMapper;
 
 namespace CategoryServiceSE1
 {
@@ -29,7 +31,9 @@ namespace CategoryServiceSE1
         {
             services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddGrpc();
+            /*services.AddAutoMapper(typeof(Helper));*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

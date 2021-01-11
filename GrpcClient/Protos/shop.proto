@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-option csharp_namespace = "CategoryServiceSE1";
-
+option csharp_namespace = "GrpcClient";
+package Shop;
 service Shop {
 	rpc AddCategory(CategoryCreate) returns (CategoryInfo);
 	rpc GetCategoryById(CategoryLookup) returns (CategoryInfo);
